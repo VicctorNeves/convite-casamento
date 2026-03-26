@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Convite de casamento — Géssica e Vicctor" />
+    <title>Géssica & Vicctor — Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <noscript>
+      <style>
+        .invite-text--reveal,
+        .date-block--reveal,
+        .countdown--reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Folhas decorativas -->
+      <div class="leaf-corner leaf-tl" aria-hidden="true">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#7a9b88"
+            d="M0 80 Q30 40 55 35 Q75 32 90 15 Q100 5 110 0 L120 0 L120 30 Q95 45 70 55 Q40 68 0 100 Z"
+          />
+          <path
+            fill="#5a7d6a"
+            opacity="0.85"
+            d="M0 95 Q25 60 50 50 Q70 42 85 25 Q95 15 105 8 L115 0 L120 20 Q100 38 75 52 Q45 72 0 100 Z"
+          />
+        </svg>
+      </div>
+      <div class="leaf-corner leaf-tr" aria-hidden="true">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#7a9b88"
+            d="M0 80 Q30 40 55 35 Q75 32 90 15 Q100 5 110 0 L120 0 L120 30 Q95 45 70 55 Q40 68 0 100 Z"
+          />
+          <path
+            fill="#5a7d6a"
+            opacity="0.85"
+            d="M0 95 Q25 60 50 50 Q70 42 85 25 Q95 15 105 8 L115 0 L120 20 Q100 38 75 52 Q45 72 0 100 Z"
+          />
+        </svg>
+      </div>
+      <div class="leaf-corner leaf-bl" aria-hidden="true">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#7a9b88"
+            d="M0 80 Q30 40 55 35 Q75 32 90 15 Q100 5 110 0 L120 0 L120 30 Q95 45 70 55 Q40 68 0 100 Z"
+          />
+          <path
+            fill="#5a7d6a"
+            opacity="0.85"
+            d="M0 95 Q25 60 50 50 Q70 42 85 25 Q95 15 105 8 L115 0 L120 20 Q100 38 75 52 Q45 72 0 100 Z"
+          />
+        </svg>
+      </div>
+      <div class="leaf-corner leaf-br" aria-hidden="true">
+        <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill="#7a9b88"
+            d="M0 80 Q30 40 55 35 Q75 32 90 15 Q100 5 110 0 L120 0 L120 30 Q95 45 70 55 Q40 68 0 100 Z"
+          />
+          <path
+            fill="#5a7d6a"
+            opacity="0.85"
+            d="M0 95 Q25 60 50 50 Q70 42 85 25 Q95 15 105 8 L115 0 L120 20 Q100 38 75 52 Q45 72 0 100 Z"
+          />
+        </svg>
+      </div>
+
+      <main class="content">
+        <!-- Player YouTube (oculto) — trilha: https://www.youtube.com/watch?v=fEa9lgs7TLk -->
+        <div id="yt-player" class="youtube-player-host" title=""></div>
+
+        <div class="music-bar">
+          <span class="music-bar__label">Trilha</span>
+          <button type="button" class="btn-play" id="btn-music" aria-label="Tocar música" disabled>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+          <p class="music-hint">Toque para ouvir a trilha no YouTube enquanto navega pelo convite.</p>
+        </div>
+
+        <div class="verses">
+          <p class="verse">
+            “E agora permanecem a fé, a esperança e o amor, estes três; mas o maior destes é o amor.”
+            <br />
+            <span>— 1 Coríntios 13:13</span>
+          </p>
+          <p class="verse">
+            “Portanto, o que Deus uniu, ninguém separa.”
+            <br />
+            <span>— Matheus 19:6</span>
+          </p>
+        </div>
+
+        <header class="names" id="names-header" aria-label="Géssica e Vicctor">
+          <p class="names__line">
+            <span id="typed-name-1" class="names__typed"></span
+            ><span class="names__cursor names__cursor--idle" id="cursor-1" aria-hidden="true"></span>
+          </p>
+          <p class="names__and names__and--hidden" id="names-and" aria-hidden="true">&amp;</p>
+          <p class="names__line">
+            <span id="typed-name-2" class="names__typed"></span
+            ><span class="names__cursor names__cursor--idle" id="cursor-2" aria-hidden="true"></span>
+          </p>
+        </header>
+
+        <p class="invite-text invite-text--reveal">
+          Com imensa alegria, convidamos você a celebrar conosco o nosso casamento. Sua presença tornará
+          este momento ainda mais especial!
+        </p>
+
+        <div class="date-block date-block--reveal date-block--template">
+          <p class="date-block__invite">Convidamos para a cerimônia do nosso casamento</p>
+          <p class="date-block__sub">A realizar-se no dia</p>
+          <div class="date-block__visual" aria-hidden="true">
+            <div class="date-block__col date-block__col--side">
+              <span class="date-block__side-label">JULHO</span>
+              <span class="date-block__rule"></span>
+            </div>
+            <div class="date-block__col date-block__col--day">
+              <span class="date-block__num">10</span>
+            </div>
+            <div class="date-block__col date-block__col--side">
+              <span class="date-block__side-label">2026</span>
+              <span class="date-block__rule"></span>
+            </div>
+          </div>
+          <p class="date-block__when">Sexta-feira, às 16:00h</p>
+        </div>
+
+        <section class="details" aria-label="Local e horário">
+          <p>Local a confirmar · Edite no HTML conforme o seu evento</p>
+        </section>
+
+        <section class="countdown countdown--reveal" id="countdown" aria-live="polite">
+          <div class="countdown__display">
+            <div class="countdown__row countdown__row--nums">
+              <span id="cd-days" class="countdown__value countdown__value--muted">00</span>
+              <span class="countdown__colon" aria-hidden="true">:</span>
+              <span id="cd-hours" class="countdown__value countdown__value--muted">00</span>
+              <span class="countdown__colon" aria-hidden="true">:</span>
+              <span id="cd-minutes" class="countdown__value countdown__value--muted">00</span>
+              <span class="countdown__colon" aria-hidden="true">:</span>
+              <span id="cd-seconds" class="countdown__value countdown__value--accent">00</span>
+            </div>
+            <div class="countdown__row countdown__row--units">
+              <span class="countdown__unit">Dias</span>
+              <span class="countdown__unit-gap" aria-hidden="true"></span>
+              <span class="countdown__unit">Horas</span>
+              <span class="countdown__unit-gap" aria-hidden="true"></span>
+              <span class="countdown__unit">Minutos</span>
+              <span class="countdown__unit-gap" aria-hidden="true"></span>
+              <span class="countdown__unit">Segundos</span>
+            </div>
+          </div>
+          <p class="countdown__message">Hoje é o nosso grande dia!</p>
+        </section>
+
+        <nav class="actions" aria-label="Links rápidos">
+          <a class="action-item" href="#local">
+            <div class="action-item__circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 21s-8-4.5-8-11a8 8 0 0 1 16 0c0 6.5-8 11-8 11z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <span class="action-item__label">Cerimônia</span>
+          </a>
+          <a class="action-item" href="#recepcao">
+            <div class="action-item__circle">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M7 3v2h1v2c0 1.66 1.34 3 3 3s3-1.34 3-3V5h1V3H7zm4 10.91c0 1.1.9 2 2 2h2v4h-2v2h6v-2h-2v-4h2c1.1 0 2-.9 2-2V11H7v3.91zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                />
+              </svg>
+            </div>
+            <span class="action-item__label">Recepção</span>
+          </a>
+          <a
+            class="action-item"
+            href="https://vicctorneves.github.io/lista-presentes/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="action-item__circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="8" width="18" height="14" rx="2" />
+                <path d="M12 8V6a2 2 0 0 1 2-2h2" />
+                <path d="M3 12h18" />
+              </svg>
+            </div>
+            <span class="action-item__label">Lista de presentes</span>
+          </a>
+          <a
+            class="action-item"
+            href="https://wa.me/5575999914620"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="action-item__circle">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                />
+              </svg>
+            </div>
+            <span class="action-item__label">Confirmar presença</span>
+          </a>
+        </nav>
+
+        <section id="local" class="gift-section gift-section--compact">
+          <h2 class="section-subtitle">Cerimônia</h2>
+          <p>Endereço e mapa: atualize este texto com o local da cerimônia.</p>
+        </section>
+
+        <section id="recepcao" class="gift-section gift-section--compact">
+          <h2 class="section-subtitle">Recepção</h2>
+          <p>Detalhes da festa: horário e endereço da recepção.</p>
+        </section>
+
+        <section class="gift-section" id="presentes">
+          <h2 class="gift-section__title">Nossa Lista de Presentes</h2>
+          <p>
+            Sua presença é o nosso maior presente! Se quiser nos presentear, preparamos uma lista com
+            carinho — clique abaixo.
+          </p>
+          <a
+            class="btn-gift"
+            href="https://vicctorneves.github.io/lista-presentes/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Clique aqui para ver nossa lista de presentes</a
+          >
+        </section>
+
+        <footer class="footer">
+          <p class="footer__script">Contamos com sua presença!</p>
+          <p class="footer__sub">Com amor, Géssica &amp; Vicctor</p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
