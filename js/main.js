@@ -2,10 +2,13 @@
   "use strict";
 
   /** Data e hora do casamento (horário de Brasília). Ajuste se necessário. */
-  var WEDDING_ISO = "2026-07-10T16:00:00-03:00";
+  var WEDDING_ISO = "2026-07-10T09:00:00-03:00";
 
-  /** ID do vídeo do YouTube (trilha do convite) */
-  var YT_VIDEO_ID = "fEa9lgs7TLk";
+  /** ID do vídeo do YouTube (trecho após v= no link) */
+  var YT_VIDEO_ID = "l7e_NxisJ5E";
+
+  /** Segundos em que a trilha começa (ex.: 20 = 0:20) */
+  var YT_START_SECONDS = 20;
 
   function parseWeddingDate() {
     return new Date(WEDDING_ISO);
@@ -78,8 +81,12 @@
       if (typeof YT === "undefined" || !YT.PlayerState) return;
       if (event.data === YT.PlayerState.PLAYING) {
         syncIcon(true);
-      } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+      } else if (event.data === YT.PlayerState.PAUSED) {
         syncIcon(false);
+      } else if (event.data === YT.PlayerState.ENDED) {
+        var p = event.target;
+        p.seekTo(YT_START_SECONDS, true);
+        p.playVideo();
       }
     }
 
@@ -93,8 +100,7 @@
           playsinline: 1,
           modestbranding: 1,
           rel: 0,
-          loop: 1,
-          playlist: YT_VIDEO_ID,
+          start: YT_START_SECONDS,
           controls: 0,
           disablekb: 1,
           fs: 0,
@@ -212,8 +218,61 @@
       });
   }
 
+  function absoluteTop(el) {
+    return el.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function initScrollSpy() {
+    var anchors = document.querySelectorAll(".action-item--anchor[href^='#']");
+    if (!anchors.length) return;
+
+    var map = [];
+    for (var i = 0; i < anchors.length; i++) {
+      var a = anchors[i];
+      var id = a.getAttribute("href").slice(1);
+      var el = document.getElementById(id);
+      if (el) map.push({ id: id, el: el, link: a });
+    }
+    if (!map.length) return;
+
+    function update() {
+      var marker = window.scrollY + window.innerHeight * 0.35;
+      var current = map[0].id;
+      for (var j = 0; j < map.length; j++) {
+        if (absoluteTop(map[j].el) <= marker + 2) {
+          current = map[j].id;
+        }
+      }
+      for (var k = 0; k < map.length; k++) {
+        var on = map[k].id === current;
+        map[k].link.classList.toggle("is-active", on);
+        if (on) {
+          map[k].link.setAttribute("aria-current", "location");
+        } else {
+          map[k].link.removeAttribute("aria-current");
+        }
+      }
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          update();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
   updateCountdown();
   setInterval(updateCountdown, 1000);
   initYouTubePlayer();
   initNamesTypewriter();
+  initScrollSpy();
 })();

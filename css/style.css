@@ -1,10 +1,11 @@
-/* Convite — tema verde sage / botânico, mobile-first */
+/* Convite — verde sage / natureza, mobile-first */
 :root {
   --bg: #ffffff;
   --green-dark: #3d5c4a;
   --green: #5a7d6a;
   --green-light: #8fb39a;
   --green-mist: #e8f0eb;
+  --green-glow: rgba(143, 179, 154, 0.18);
   --text: #2a2a2a;
   --text-soft: #4a4a4a;
   --gold: #a68966;
@@ -21,7 +22,19 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: clamp(0.75rem, 3vw, 1.5rem);
   width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Âncoras: título da seção não fica colado no topo ao rolar */
+main.content > section[id] {
+  scroll-margin-top: clamp(1rem, 4vw, 2rem);
 }
 
 body {
@@ -30,7 +43,10 @@ body {
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 120% 90% at 50% -15%, var(--green-glow), transparent 55%),
+    radial-gradient(ellipse 80% 60% at 100% 100%, rgba(168, 196, 175, 0.1), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 0% 80%, rgba(232, 240, 235, 0.9), transparent 45%);
   color: var(--text);
   font-family: var(--sans);
   font-size: 15px;
@@ -38,7 +54,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Moldura botânica — cantos */
 .page {
   position: relative;
   width: 100%;
@@ -49,10 +64,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Folhas decorativas — cantos */
 .leaf-corner {
   position: absolute;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.48;
   z-index: 0;
 }
 
@@ -176,21 +192,74 @@ body {
   line-height: 1.35;
 }
 
+/* Hero template: alianças + título + versículos */
+.hero-invite {
+  margin: 0 auto 1.5rem;
+  max-width: 26rem;
+}
+
+.rings-hero {
+  margin: 0 auto 1rem;
+  max-width: min(300px, 88vw);
+  padding: 0;
+}
+
+.rings-hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.hero-title {
+  margin: 0 0 1.1rem;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--green-dark);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+.hero-title__line {
+  display: block;
+  font-size: clamp(1.85rem, 7.5vw, 2.45rem);
+}
+
+.hero-title__line--second {
+  font-size: clamp(1.75rem, 7vw, 2.35rem);
+  font-weight: 600;
+  margin-top: 0.12em;
+}
+
 /* Cabeçalho / versículos */
 .verses {
   margin: 0 0 1.5rem;
   padding: 0 0.5rem;
 }
 
+.verses--hero {
+  margin-bottom: 0;
+}
+
 .verse {
   text-align: center;
-  font-family: var(--serif);
-  font-size: 0.8rem;
-  font-style: italic;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 400;
+  font-style: normal;
   color: var(--text-soft);
   margin: 0 0 0.85rem;
   padding: 0;
-  line-height: 1.7;
+  line-height: 1.65;
+}
+
+.verse--primary {
+  font-weight: 400;
+  color: var(--text-soft);
 }
 
 .verses .verse:last-child {
@@ -200,6 +269,7 @@ body {
 .verse > span {
   color: var(--gold);
   font-style: normal;
+  font-size: 0.78rem;
 }
 
 /* Nomes */
@@ -570,6 +640,22 @@ body.is-names-ready .countdown--reveal {
   transform: scale(0.98);
 }
 
+.action-item--anchor.is-active .action-item__circle {
+  background: var(--green-dark);
+  box-shadow: 0 0 0 3px rgba(143, 179, 154, 0.55);
+}
+
+.action-item--anchor.is-active .action-item__label {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.action-item--anchor:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 .action-item svg {
   width: 24px;
   height: 24px;
@@ -588,6 +674,7 @@ body.is-names-ready .countdown--reveal {
   text-align: center;
   padding: 1.5rem 1rem;
   background: var(--green-mist);
+  border: 1px solid rgba(90, 125, 106, 0.22);
   border-radius: 16px;
   margin-bottom: 2rem;
 }
