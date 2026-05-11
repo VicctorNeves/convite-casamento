@@ -2,7 +2,7 @@
   "use strict";
 
   /** Data e hora do casamento (horário de Brasília). Ajuste se necessário. */
-  var WEDDING_ISO = "2026-07-10T10:30:00-03:00";
+  var WEDDING_ISO = "2026-07-10T11:00:00-03:00";
 
   /** ID do vídeo do YouTube (trecho após v= no link) */
   var YT_VIDEO_ID = "l7e_NxisJ5E";
